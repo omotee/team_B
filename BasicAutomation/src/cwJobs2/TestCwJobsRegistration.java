@@ -9,7 +9,7 @@ public class TestCwJobsRegistration {
 		
 		CwJobsRegisteration test = new CwJobsRegisteration();
 		
-		test.setDetails("Aijay","Dine", "dine@yahoo.com","12345abc");
+		test.setDetails("Aijay","Dine", "dine@yahoo.com","12345abc","Shop assisant");
 		test.setUp();
 		test.RegisterUser();
 		test.verifyRegistration();

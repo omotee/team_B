@@ -15,16 +15,18 @@ public class CwJobsRegisteration {
 	private  String surname;
 	private  String email;
 	private  String password;
+	private String recentJobTitle;
 	
 	public CwJobsRegisteration(){
 		driver = new FirefoxDriver();
 	}
 	
-	public void setDetails(String firstname, String surname,String email,String password){
+	public void setDetails(String firstname, String surname,String email,String password,String recentJobTitle){
 		this.firstname = firstname;
 		this.surname = surname;
 		this.email = email;
 		this.password = password;
+	    this.recentJobTitle=recentJobTitle;
 	}
 	
 //	public void setFirstname(String firstname){
@@ -55,6 +57,7 @@ public class CwJobsRegisteration {
 	public void RegisterUser() throws IOException{
 		
 		
+		
 		driver.findElement(By.id("firstname")).sendKeys(firstname);
 		driver.findElement(By.id("surname")).sendKeys(surname);
 		driver.findElement(By.id("email")).sendKeys(email);
@@ -71,19 +74,29 @@ public class CwJobsRegisteration {
 //		driver.findElement(By.xpath("//*[@id='cvUploadOptions']/li[1]/label")).click();
 		driver.findElement(By.xpath("//*[@id='frmMain']/div/div[3]/div/div/div[6]/div[1]/div[2]/div/label[1]")).click();
 		driver.findElement(By.xpath("//*[@id='frmMain']/div/div[3]/div/div/div[6]/div[2]/div[2]/div/label[1]")).click();
-		driver.findElement(By.id("password")).sendKeys(password);
-		driver.findElement(By.id("confirmpassword")).sendKeys(password);
-		driver.findElement(By.id("cvdbOptIn")).clear();
-		driver.findElement(By.id("register")).click();
-		
 		
 		WebElement education = driver.findElement(By.id("ddlEducation"));
 		Select click = new Select(education);
-		click.selectByValue("University degree");
+		click.selectByValue("531");
+		
+		driver.findElement(By.id("currentJobTitle")).sendKeys(recentJobTitle);
+		driver.findElement(By.xpath("//*[@id='frmMain']/div/div[3]/div/div/div[9]/div/div[2]/div/label[2]")).click();
+		
+		WebElement salary = driver.findElement(By.id("ddlSalaryRange"));
+		Select dailyRate = new Select(salary);
+		dailyRate.selectByValue("29");;
+		
+		
+		
+		driver.findElement(By.id("password")).sendKeys(password);
+		driver.findElement(By.id("confirmpassword")).sendKeys(password);
+		driver.findElement(By.id("cvdbOptIn")).click();
+		driver.findElement(By.id("register")).click();
+		
 	}
 	
 	public void verifyRegistration(){
-		if(driver.getPageSource().contains("We already have an active account for this email")){
+		if(driver.getPageSource().contains("This email address already exists")){
 		System.out.println("Test was successful");
 	}else 
 		System.out.println("Test was unsuccessful");
