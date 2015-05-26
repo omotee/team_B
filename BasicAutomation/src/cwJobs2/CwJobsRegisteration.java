@@ -2,6 +2,7 @@ package cwJobs2;
 
 import java.io.IOException;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -11,7 +12,7 @@ import org.openqa.selenium.support.ui.Select;
 public class CwJobsRegisteration {
 	
 	private  WebDriver driver;
-	private  String firstname;
+	private  String firstname = "Aijay";
 	private  String surname;
 	private  String email;
 	private  String password;
@@ -55,9 +56,6 @@ public class CwJobsRegisteration {
 	}
 	
 	public void RegisterUser() throws IOException{
-		
-		
-		
 		driver.findElement(By.id("firstname")).sendKeys(firstname);
 		driver.findElement(By.id("surname")).sendKeys(surname);
 		driver.findElement(By.id("email")).sendKeys(email);
@@ -78,6 +76,7 @@ public class CwJobsRegisteration {
 		WebElement education = driver.findElement(By.id("ddlEducation"));
 		Select click = new Select(education);
 		click.selectByValue("531");
+
 		
 		driver.findElement(By.id("currentJobTitle")).sendKeys(recentJobTitle);
 		driver.findElement(By.xpath("//*[@id='frmMain']/div/div[3]/div/div/div[9]/div/div[2]/div/label[2]")).click();
@@ -86,20 +85,19 @@ public class CwJobsRegisteration {
 		Select dailyRate = new Select(salary);
 		dailyRate.selectByValue("29");;
 		
-		
-		
+
 		driver.findElement(By.id("password")).sendKeys(password);
 		driver.findElement(By.id("confirmpassword")).sendKeys(password);
 		driver.findElement(By.id("cvdbOptIn")).click();
 		driver.findElement(By.id("register")).click();
-		
 	}
 	
 	public void verifyRegistration(){
-		if(driver.getPageSource().contains("This email address already exists")){
-		System.out.println("Test was successful");
-	}else 
-		System.out.println("Test was unsuccessful");
+		Assert.assertTrue("Test was unsuccessful", driver.getPageSource().contains("This email address already exists"));
+//		if(driver.getPageSource().contains("This email address already exists")){
+//		System.out.println("Test was successful");
+//	}else 
+//		System.out.println("Test was unsuccessful");
 	}	
 	
 	
