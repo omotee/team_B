@@ -43,7 +43,9 @@ public class rubySurvey {
 		click.selectByValue("1");
 		
 		
-//		driver.findElement(By.id("give_me_a_file")).click();
+		
+		WebElement file_input = driver.findElement(By.id("give_me_a_file"));
+		file_input.sendKeys("C:\\Users\\AIJAY\\Desktop\\CV -cwjobs.doc");
 //		StringSelection upload = new StringSelection("D:\\Users\\AIJAY\\Desktop\\CV -cwjobs.doc");
 //		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(upload,null);
 //		
@@ -56,7 +58,6 @@ public class rubySurvey {
 //		robot.keyPress(KeyEvent.VK_CONTROL);
 //		robot.keyPress(KeyEvent.VK_ENTER);
 //		robot.keyPress(KeyEvent.VK_ENTER);
-
 		
 		driver.findElement(By.id("saveForm")).click();
 		
@@ -66,16 +67,8 @@ public class rubySurvey {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-	
 	}
 	 
-//	public void verifyFile(){
-//		if(driver.getPageSource().contains("T")){
-//		System.out.println("Test was successful");
-//	}else 
-//		System.out.println("Test was unsuccessful");
-//	}	
 	
 	public void tearDown(){
 		driver.close();
