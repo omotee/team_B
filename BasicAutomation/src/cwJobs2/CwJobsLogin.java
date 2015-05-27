@@ -1,5 +1,6 @@
 package cwJobs2;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -31,10 +32,11 @@ public class CwJobsLogin {
 	}
 	
 	public void verifyLogin(){
-		if(driver.getPageSource().contains("Aijay's account")){
-		System.out.println("Test was successful");
-	}else 
-		System.out.println("Test was unsuccessful");
+		Assert.assertTrue("Test was unsuccessful", driver.getPageSource().contains("Aijay's account"));
+//		if(driver.getPageSource().contains("Aijay's account")){
+//		System.out.println("Test was successful");
+//	}else 
+//		System.out.println("Test was unsuccessful");
 	}	
 	
 	public void tearDown(){
