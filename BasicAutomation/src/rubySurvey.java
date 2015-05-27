@@ -22,6 +22,7 @@ public class rubySurvey {
 	public void setDetails(String affirmation,String surveyDetails,String evangelist){
 		this.affirmation = affirmation;
 		this.surveyDetails = surveyDetails;
+		this.evangelist = evangelist;
 		
 	}
 	public void setUp(){
@@ -44,8 +45,8 @@ public class rubySurvey {
 		
 		
 		
-		WebElement file_input = driver.findElement(By.id("give_me_a_file"));
-		file_input.sendKeys("C:\\Users\\AIJAY\\Desktop\\CV -cwjobs.doc");
+		WebElement cV = driver.findElement(By.id("give_me_a_file"));
+		cV.sendKeys("C:\\Users\\AIJAY\\Desktop\\CV-cwjobs.doc");
 //		StringSelection upload = new StringSelection("D:\\Users\\AIJAY\\Desktop\\CV -cwjobs.doc");
 //		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(upload,null);
 //		
