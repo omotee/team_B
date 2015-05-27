@@ -1,3 +1,4 @@
+package rubySurvey;
 import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.Toolkit;
@@ -19,7 +20,7 @@ public class rubySurvey {
 	private String surveyDetails;
 	private String evangelist;
 	
-	public void setDetails(String affirmation,String surveyDetails,String evangelist){
+	public void setDetails(String affirmation, String surveyDetails, String evangelist){
 		this.affirmation = affirmation;
 		this.surveyDetails = surveyDetails;
 		this.evangelist = evangelist;
@@ -42,32 +43,23 @@ public class rubySurvey {
 		WebElement dropdown = driver.findElement(By.id("usage"));
 		Select click = new Select(dropdown);
 		click.selectByValue("1");
-		
-		
+	
 		
 		WebElement cV = driver.findElement(By.id("give_me_a_file"));
-		cV.sendKeys("C:\\Users\\AIJAY\\Desktop\\CV-cwjobs.doc");
-//		StringSelection upload = new StringSelection("D:\\Users\\AIJAY\\Desktop\\CV -cwjobs.doc");
-//		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(upload,null);
-//		
-//		Robot robot = new Robot();
-//		robot.keyPress(KeyEvent.VK_ENTER);
-//		robot.keyPress(KeyEvent.VK_ENTER);
-//		robot.keyPress(KeyEvent.VK_CONTROL);
-//		robot.keyPress(KeyEvent.VK_V);
-//		robot.keyPress(KeyEvent.VK_V);
-//		robot.keyPress(KeyEvent.VK_CONTROL);
-//		robot.keyPress(KeyEvent.VK_ENTER);
-//		robot.keyPress(KeyEvent.VK_ENTER);
+		cV.sendKeys("C:\\Users\\EDWIN\\Desktop\\Automation Site.txt");
+
 		
-		driver.findElement(By.id("saveForm")).click();
 		
 		try {
-			Thread.sleep(5000);
+			Thread.sleep(50000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		driver.findElement(By.id("saveForm")).click();
+		
+		
 	}
 	 
 	
