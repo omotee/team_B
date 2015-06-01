@@ -2,7 +2,10 @@ public class Tbabs{
 
 	public static void main (string args[]){
 	system.out.println("Thank you Lord")
+	
+public void changes(){
 
+}
 
 }
 
