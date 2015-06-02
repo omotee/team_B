@@ -1,11 +1,11 @@
 package rubySurvey;
-import java.awt.AWTException;
+//import java.awt.AWTException;
 import java.io.IOException;
 
 
 public class testRubySurvey {
 
-	public static void main(String[] args) throws IOException, AWTException {
+	public static void main(String[] args) throws IOException {
 		rubySurvey test = new rubySurvey();
 		
 

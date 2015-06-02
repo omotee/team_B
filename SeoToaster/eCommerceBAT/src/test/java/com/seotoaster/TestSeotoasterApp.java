@@ -2,6 +2,7 @@ package com.seotoaster;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -9,6 +10,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import com.seotoaster.main.AbstractPage;
 import com.seotoaster.main.HomePage;
 import com.seotoaster.util.SignInPage;
+import com.seotoaster.util.SignOutPage;
 import com.seotoaster.work.LandingPage;
 
 public class TestSeotoasterApp {
@@ -17,6 +19,7 @@ public class TestSeotoasterApp {
 	private SignInPage signInPage;
 	private LandingPage landingPage;
 	private AbstractPage abstractPage;
+	private SignOutPage signOutPage;
 	private String username = "demo@seotoaster.com";
 	private String password = "demo";
 	
@@ -27,6 +30,7 @@ public class TestSeotoasterApp {
 		signInPage = new SignInPage(driver);
 		landingPage = new LandingPage(driver);
 		abstractPage = new AbstractPage(driver);
+		signOutPage = new SignOutPage(driver);
 	}
 	
 	@Before
@@ -41,6 +45,7 @@ public class TestSeotoasterApp {
 		System.out.println("This is after method");
 	}
 	
+	
 	@Test
 	public void testLogin(){
 		homePage.verifyHomePage();
@@ -52,7 +57,13 @@ public class TestSeotoasterApp {
 	
 	@Test
 	public void testLogout(){
-		System.out.println("Hello this is tghe sceond test for Logout");
+		homePage.verifyHomePage();
+		signInPage.visitSignInPage();
+		signInPage.loginWith(username, password);
+		landingPage.verifySuccessfulLogin();
+		signOutPage.logOut();
+		signOutPage.verifySuccessfulLogOut();
+		System.out.println("Hello this is the sceond test for Logout");
 	}
 	
 	

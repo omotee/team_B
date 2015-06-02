@@ -1,9 +1,9 @@
 package rubySurvey;
-import java.awt.AWTException;
-import java.awt.Robot;
-import java.awt.Toolkit;
-import java.awt.datatransfer.StringSelection;
-import java.awt.event.KeyEvent;
+//import java.awt.AWTException;
+//import java.awt.Robot;
+//import java.awt.Toolkit;
+//import java.awt.datatransfer.StringSelection;
+//import java.awt.event.KeyEvent;
 import java.io.IOException;
 
 import org.openqa.selenium.By;
@@ -32,7 +32,7 @@ public class rubySurvey {
 		driver.navigate().to("http://nitrowriters.com/form/form.html");	
 	}
 	
-	public void survey() throws IOException, AWTException{
+	public void survey() throws IOException{
 		driver.findElement(By.id("my_text_field")).sendKeys(affirmation);
 		driver.findElement(By.id("a_text_area")).sendKeys(surveyDetails);
 		driver.findElement(By.id("familiar_rails_3")).click();
