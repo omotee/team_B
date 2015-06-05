@@ -1,7 +1,9 @@
 package com.seotoaster;
 
 import org.junit.After;
+import org.junit.AfterClass;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
@@ -20,6 +22,7 @@ public class TestSeotoasterApp {
 	private LandingPage landingPage;
 	private AbstractPage abstractPage;
 	private SignOutPage signOutPage;
+	
 	private String username = "demo@seotoaster.com";
 	private String password = "demo";
 	
@@ -44,16 +47,17 @@ public class TestSeotoasterApp {
 		abstractPage.tearDownDriver();
 		System.out.println("This is after method");
 	}
-	
-	
+
 	@Test
 	public void testLogin(){
 		homePage.verifyHomePage();
 		signInPage.visitSignInPage();
 		signInPage.loginWith(username, password);
 		landingPage.verifySuccessfulLogin();
-		System.out.println("This is the login test");
 	}
+	
+
+	
 	
 	@Test
 	public void testLogout(){
@@ -63,10 +67,16 @@ public class TestSeotoasterApp {
 		landingPage.verifySuccessfulLogin();
 		signOutPage.logOut();
 		signOutPage.verifySuccessfulLogOut();
-		System.out.println("Hello this is the sceond test for Logout");
 	}
 	
+	@BeforeClass
+	public static void startDatabase(){
+		System.out.println("Open Database!");
+	}
 	
-	
+	@AfterClass
+	public static void closeDatabase(){
+		System.out.println("Close Database");
+	}
 
 }

@@ -1,5 +1,8 @@
 package com.seotoaster.main;
 
+import java.util.concurrent.TimeUnit;
+
+import org.junit.rules.Timeout;
 import org.openqa.selenium.WebDriver;
 
 public class AbstractPage {
@@ -13,6 +16,7 @@ public class AbstractPage {
 
 
 	public void setUpDriver() {
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 		driver.get(baseUrl);
 	}
