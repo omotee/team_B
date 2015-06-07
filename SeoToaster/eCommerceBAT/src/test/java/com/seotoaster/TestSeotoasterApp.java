@@ -1,53 +1,55 @@
 package com.seotoaster;
 
 import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-import com.seotoaster.main.AbstractPage;
-import com.seotoaster.main.HomePage;
-import com.seotoaster.util.SignInPage;
-import com.seotoaster.util.SignOutPage;
-import com.seotoaster.work.LandingPage;
+import com.seotoaster.pages.AbstractPage;
+import com.seotoaster.pages.BuyItemPage;
+import com.seotoaster.pages.HomePage;
+import com.seotoaster.pages.LandingPage;
+import com.seotoaster.pages.SignInPage;
+import com.seotoaster.pages.SignOutPage;
 
 public class TestSeotoasterApp {
 	public WebDriver driver;
 	private HomePage homePage;
 	private SignInPage signInPage;
 	private LandingPage landingPage;
-	private AbstractPage abstractPage;
+	private static AbstractPage abstractPage;
 	private SignOutPage signOutPage;
+	private BuyItemPage buyItemPage;
 	
 	private String username = "demo@seotoaster.com";
 	private String password = "demo";
 	
 	
 	public TestSeotoasterApp(){
-		driver = new FirefoxDriver();
-		homePage = new HomePage(driver);
-		signInPage = new SignInPage(driver);
-		landingPage = new LandingPage(driver);
+		this.driver = new FirefoxDriver();
+		this.homePage = new HomePage(driver);
+		this.signInPage = new SignInPage(driver);
+		this.landingPage = new LandingPage(driver);
 		abstractPage = new AbstractPage(driver);
-		signOutPage = new SignOutPage(driver);
+		this.signOutPage = new SignOutPage(driver);
+		this.buyItemPage = new BuyItemPage(driver);
 	}
+	
 	
 	@Before
 	public void startTest(){
 		abstractPage.setUpDriver();
-		System.out.println("This is before method");
 	}
 	
 	@After
 	public void stopTest(){
 		abstractPage.tearDownDriver();
-		System.out.println("This is after method");
+		
 	}
-
+	
+	@Ignore
 	@Test
 	public void testLogin(){
 		homePage.verifyHomePage();
@@ -56,9 +58,21 @@ public class TestSeotoasterApp {
 		landingPage.verifySuccessfulLogin();
 	}
 	
+	@Test
+	public void testPurchaseBike(){
+		homePage.verifyHomePage();
+		signInPage.visitSignInPage();
+		signInPage.loginWith(username, password);
+		landingPage.verifySuccessfulLogin();
+		buyItemPage.addItem();
+		buyItemPage.verifyItemPrice();
+		buyItemPage.addItemToCart();
+		buyItemPage.verifyItemInCart();
+	
+	}
 
 	
-	
+	@Ignore
 	@Test
 	public void testLogout(){
 		homePage.verifyHomePage();
@@ -67,16 +81,9 @@ public class TestSeotoasterApp {
 		landingPage.verifySuccessfulLogin();
 		signOutPage.logOut();
 		signOutPage.verifySuccessfulLogOut();
+		
 	}
 	
-	@BeforeClass
-	public static void startDatabase(){
-		System.out.println("Open Database!");
-	}
 	
-	@AfterClass
-	public static void closeDatabase(){
-		System.out.println("Close Database");
-	}
 
 }

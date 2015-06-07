@@ -1,10 +1,8 @@
-package com.seotoaster.util;
+package com.seotoaster.pages;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-
-import com.seotoaster.main.AbstractPage;
 
 public class SignOutPage extends AbstractPage {
 	

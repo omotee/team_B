@@ -1,4 +1,4 @@
-package com.seotoaster.main;
+package com.seotoaster.pages;
 
 import java.util.concurrent.TimeUnit;
 
@@ -14,6 +14,9 @@ public class AbstractPage {
 		this.driver = driver;
 	}
 
+	public void setUpDatabase(){
+		System.out.println("This is for Database start up codes!!!");
+	}
 
 	public void setUpDriver() {
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);

@@ -1,9 +1,7 @@
-package com.seotoaster.work;
+package com.seotoaster.pages;
 
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
-
-import com.seotoaster.main.AbstractPage;
 
 public class LandingPage extends AbstractPage{
 
