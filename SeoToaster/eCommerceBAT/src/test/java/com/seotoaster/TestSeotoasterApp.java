@@ -8,7 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import com.seotoaster.pages.AbstractPage;
-import com.seotoaster.pages.BuyItemPage;
+import com.seotoaster.pages.RoadBikePage;
 import com.seotoaster.pages.HomePage;
 import com.seotoaster.pages.LandingPage;
 import com.seotoaster.pages.SignInPage;
@@ -21,7 +21,7 @@ public class TestSeotoasterApp {
 	private LandingPage landingPage;
 	private static AbstractPage abstractPage;
 	private SignOutPage signOutPage;
-	private BuyItemPage buyItemPage;
+	private RoadBikePage roadBikePage;
 	
 	private String username = "demo@seotoaster.com";
 	private String password = "demo";
@@ -34,7 +34,7 @@ public class TestSeotoasterApp {
 		this.landingPage = new LandingPage(driver);
 		abstractPage = new AbstractPage(driver);
 		this.signOutPage = new SignOutPage(driver);
-		this.buyItemPage = new BuyItemPage(driver);
+		this.roadBikePage = new RoadBikePage(driver);
 	}
 	
 	
@@ -64,10 +64,10 @@ public class TestSeotoasterApp {
 		signInPage.visitSignInPage();
 		signInPage.loginWith(username, password);
 		landingPage.verifySuccessfulLogin();
-		buyItemPage.addItem();
-		buyItemPage.verifyItemPrice();
-		buyItemPage.addItemToCart();
-		buyItemPage.verifyItemInCart();
+		roadBikePage.addBike();
+		roadBikePage.verifyBikePrice();
+		roadBikePage.addBikeToCart();
+		roadBikePage.verifyBikeInCart();
 	
 	}
 
