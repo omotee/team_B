@@ -1,0 +1,5 @@
+Using Test Runner class to execute JUnit Test
+Using Maven and where to click to run test
+Using a try/catch concept which used in managing exception
+Using @BeforeClass and @AfterClass
+Using/Applying implicit wait to a code

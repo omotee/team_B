@@ -7,54 +7,72 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-import com.seotoaster.main.AbstractPage;
-import com.seotoaster.main.HomePage;
-import com.seotoaster.util.SignInPage;
-import com.seotoaster.util.SignOutPage;
-import com.seotoaster.work.LandingPage;
+import com.seotoaster.pages.AbstractPage;
+import com.seotoaster.pages.RoadBikePage;
+import com.seotoaster.pages.HomePage;
+import com.seotoaster.pages.LandingPage;
+import com.seotoaster.pages.SignInPage;
+import com.seotoaster.pages.SignOutPage;
 
 public class TestSeotoasterApp {
 	public WebDriver driver;
 	private HomePage homePage;
 	private SignInPage signInPage;
 	private LandingPage landingPage;
-	private AbstractPage abstractPage;
+	private static AbstractPage abstractPage;
 	private SignOutPage signOutPage;
+	private RoadBikePage roadBikePage;
+	
 	private String username = "demo@seotoaster.com";
 	private String password = "demo";
 	
 	
 	public TestSeotoasterApp(){
-		driver = new FirefoxDriver();
-		homePage = new HomePage(driver);
-		signInPage = new SignInPage(driver);
-		landingPage = new LandingPage(driver);
+		this.driver = new FirefoxDriver();
+		this.homePage = new HomePage(driver);
+		this.signInPage = new SignInPage(driver);
+		this.landingPage = new LandingPage(driver);
 		abstractPage = new AbstractPage(driver);
-		signOutPage = new SignOutPage(driver);
+		this.signOutPage = new SignOutPage(driver);
+		this.roadBikePage = new RoadBikePage(driver);
 	}
+	
 	
 	@Before
 	public void startTest(){
 		abstractPage.setUpDriver();
-		System.out.println("This is before method");
 	}
 	
 	@After
 	public void stopTest(){
 		abstractPage.tearDownDriver();
-		System.out.println("This is after method");
+		
 	}
 	
-	
+	@Ignore
 	@Test
 	public void testLogin(){
 		homePage.verifyHomePage();
 		signInPage.visitSignInPage();
 		signInPage.loginWith(username, password);
 		landingPage.verifySuccessfulLogin();
-		System.out.println("This is the login test");
 	}
 	
+	@Test
+	public void testPurchaseBike(){
+		homePage.verifyHomePage();
+		signInPage.visitSignInPage();
+		signInPage.loginWith(username, password);
+		landingPage.verifySuccessfulLogin();
+		roadBikePage.addBike();
+		roadBikePage.verifyBikePrice();
+		roadBikePage.addBikeToCart();
+		roadBikePage.verifyBikeInCart();
+	
+	}
+
+	
+	@Ignore
 	@Test
 	public void testLogout(){
 		homePage.verifyHomePage();
@@ -63,9 +81,8 @@ public class TestSeotoasterApp {
 		landingPage.verifySuccessfulLogin();
 		signOutPage.logOut();
 		signOutPage.verifySuccessfulLogOut();
-		System.out.println("Hello this is the sceond test for Logout");
+		
 	}
-	
 	
 	
 
