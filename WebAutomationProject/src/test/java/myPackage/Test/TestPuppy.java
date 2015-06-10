@@ -1,54 +1,53 @@
 package myPackage.Test;
 
 import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-import poppyAdoption.AbstractPage;
-import poppyAdoption.AdoptPage;
-import poppyAdoption.PuppyHomePage;
+import poppyAdoption.pages.AbstractPage;
+import poppyAdoption.pages.AdoptMePage;
+import poppyAdoption.pages.CompleteAdoptMePage;
+import poppyAdoption.pages.HomePage;
+import poppyAdoption.pages.ViewDetailsPage;
 
 public class TestPuppy {
 
 	public WebDriver driver;
-	private PuppyHomePage puppyHomePage;
-	private AdoptPage adoptPage;
+	private HomePage homePage;
+	private AdoptMePage adoptMePage;
 	private AbstractPage abstractPage;
-	
+	private CompleteAdoptMePage completeAdoptPage;
+	private ViewDetailsPage viewDetailsPage;
 
-public TestPuppy(){
-	driver = new FirefoxDriver();
-	puppyHomePage = new PuppyHomePage(driver);
-	adoptPage = new AdoptPage(driver);
-	abstractPage = new AbstractPage(driver);
+	public TestPuppy() {
+		driver = new FirefoxDriver();
+		homePage = new HomePage(driver);
+		adoptMePage = new AdoptMePage(driver);
+		abstractPage = new AbstractPage(driver);
+		completeAdoptPage = new CompleteAdoptMePage(driver);
+		viewDetailsPage = new ViewDetailsPage(driver);
 	}
 
-@Before
-public void startTest(){
-	abstractPage.setUp();
-}
-
-
+	@Before
+	public void startTest() {
+		abstractPage.setUp();
+	}
 
 	@Test
-	public void herokuEndToEndTest(){
-		puppyHomePage.verifyPuppyHomePage();
-		adoptPage.selectBrook();
-		adoptPage.verifyBrookPriceBeforeAdditionalProducts();
-		adoptPage.adoptBrookWithAdditionalProducts();
-		adoptPage.verifyBrookPriceAfterAdditionalProducts();
-		adoptPage.completeAdoption();
-//		adoptPage.verifyAdoption();
+	public void herokuEndToEndTest() {
+		homePage.verifyPuppyHomePage();
+		homePage.selectBrook();
+		viewDetailsPage.verifyBrookPriceBeforeAdditionalProducts();
+		adoptMePage.adoptBrookWithAdditionalProducts();
+		adoptMePage.verifyBrookPriceAfterAdditionalProducts();
+		completeAdoptPage.completeAdoption();
+		// adoptPage.verifyAdoption();
 	}
 
-@After
-public void endTest(){
-	
+	@After
+	public void endTest() {
+		abstractPage.tearDown();
+	}
 }
-}
-
-
