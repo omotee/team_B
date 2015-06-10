@@ -53,7 +53,7 @@ public class TestPuppyAdoptionApp {
 	adoptMePage.adoptBrook();
 	adoptMePage.addProducts();
 	completeAdoptionPage.supplyDetails(name, address, email);
-	placeOrderPage.verifyPlaceOrder();
+	placeOrderPage.PlaceOrder();
 	
 	}
 

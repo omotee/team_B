@@ -22,7 +22,7 @@ public class CompleteAdoptionPage extends AbstractPage{
 		WebElement payType = driver.findElement(By.id("order_pay_type"));
 		Select click = new Select(payType);
 		click.selectByVisibleText("Check");
-		driver.findElement(By.name("commit")).click();
+		
 		
 		
 	}

@@ -1,5 +1,9 @@
 package com.puppies.main;
 
+
+
+import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class PlaceOrderPage extends AbstractPage{
@@ -8,9 +12,14 @@ public class PlaceOrderPage extends AbstractPage{
 		super(driver);
 	}
 
-	public void verifyPlaceOrder() {
+	public void PlaceOrder() {
 		
-		
+		driver.findElement(By.name("commit")).click();
+	}
+	
+	public void verifyAdoption(){
+		String message = "Test was not successful";
+	Assert.assertTrue(message,driver.getPageSource().contains("Thank you for adopting a puppy!"));
 	}
 
 }
