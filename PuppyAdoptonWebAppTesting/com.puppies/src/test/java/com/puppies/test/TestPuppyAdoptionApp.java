@@ -8,6 +8,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 import com.puppies.main.AbstractPage;
 import com.puppies.main.AdoptMePage;
+import com.puppies.main.ChangeMindPage;
 import com.puppies.main.CompleteAdoptionPage;
 import com.puppies.main.HomePage;
 import com.puppies.main.PlaceOrderPage;
@@ -22,6 +23,7 @@ public class TestPuppyAdoptionApp {
 	private AdoptMePage adoptMePage;
 	private CompleteAdoptionPage completeAdoptionPage;
 	private PlaceOrderPage placeOrderPage;
+	private ChangeMindPage changeMindPage;
 	private String name = "Edith";
 	private String address ="12 SouthShields";
 	private String email = "dine@yahoo.com";
@@ -36,6 +38,7 @@ public class TestPuppyAdoptionApp {
 	adoptMePage = new AdoptMePage(driver);
 	completeAdoptionPage = new CompleteAdoptionPage(driver);
 	placeOrderPage = new PlaceOrderPage(driver);
+	changeMindPage = new ChangeMindPage(driver);
 	
     
     }
@@ -46,16 +49,30 @@ public class TestPuppyAdoptionApp {
 	}
 
    	@Test
-	public void runtest(){
+	public void adoptBrookAndCheckOutTest(){
 	homePage.verifyHomePage();
 	homePage.viewPuppy();
 	viewPuppyDetailsPage.verifyAdoptionFee();
 	adoptMePage.adoptBrook();
 	adoptMePage.addProducts();
 	completeAdoptionPage.supplyDetails(name, address, email);
-	placeOrderPage.PlaceOrder();
+	placeOrderPage.confirmOrder();
+	
 	
 	}
+   	
+   	@Test
+   	public void adoptAndChangeYourMindTest(){
+   		homePage.verifyHomePage();
+   		homePage.viewPuppy();
+   		viewPuppyDetailsPage.verifyAdoptionFee();
+   		changeMindPage.adoptPuppyBrook();
+   		changeMindPage.chnageYourMind();
+   		changeMindPage.areYouSure();
+   		changeMindPage.areYouVerySure();
+   		changeMindPage.verifyChangedMind();
+   	}
+   	
 
    	@After
     public void postTest(){

@@ -12,7 +12,7 @@ public class PlaceOrderPage extends AbstractPage{
 		super(driver);
 	}
 
-	public void PlaceOrder() {
+	public void confirmOrder() {
 		
 		driver.findElement(By.name("commit")).click();
 	}
