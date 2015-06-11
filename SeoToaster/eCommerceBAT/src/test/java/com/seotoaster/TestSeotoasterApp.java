@@ -8,9 +8,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import com.seotoaster.pages.AbstractPage;
+import com.seotoaster.pages.AddToCartPage;
+import com.seotoaster.pages.MountainBikePage;
 import com.seotoaster.pages.RoadBikePage;
 import com.seotoaster.pages.HomePage;
 import com.seotoaster.pages.LandingPage;
+import com.seotoaster.pages.SantaCruzPage;
 import com.seotoaster.pages.SignInPage;
 import com.seotoaster.pages.SignOutPage;
 
@@ -22,6 +25,9 @@ public class TestSeotoasterApp {
 	private static AbstractPage abstractPage;
 	private SignOutPage signOutPage;
 	private RoadBikePage roadBikePage;
+	private MountainBikePage mountainBikePage;
+	private SantaCruzPage santaCruzPage;
+	private AddToCartPage addToCartPage;
 	
 	private String username = "demo@seotoaster.com";
 	private String password = "demo";
@@ -35,6 +41,9 @@ public class TestSeotoasterApp {
 		abstractPage = new AbstractPage(driver);
 		this.signOutPage = new SignOutPage(driver);
 		this.roadBikePage = new RoadBikePage(driver);
+		this.mountainBikePage = new MountainBikePage(driver);
+		this.santaCruzPage = new SantaCruzPage(driver);
+		this.addToCartPage = new AddToCartPage(driver);
 	}
 	
 	
@@ -58,6 +67,7 @@ public class TestSeotoasterApp {
 		landingPage.verifySuccessfulLogin();
 	}
 	
+	@Ignore
 	@Test
 	public void testPurchaseBike(){
 		homePage.verifyHomePage();
@@ -84,6 +94,18 @@ public class TestSeotoasterApp {
 		
 	}
 	
+	@Test
+	public void testAddAMountianBikeToCart() throws Throwable{
+		homePage.verifyHomePage();
+		signInPage.visitSignInPage();
+		signInPage.loginWith(username, password);
+		landingPage.verifySuccessfulLogin();
+		mountainBikePage.openSantaCruzBike();
+		santaCruzPage.verifySantaCruzAmount();
+		santaCruzPage.addASantazCruiseBikeToCart();
+		addToCartPage.verifySantaCruzBike();
+		
+	}
 	
 
 }
