@@ -16,6 +16,10 @@ import com.seotoaster.pages.LandingPage;
 import com.seotoaster.pages.SantaCruzPage;
 import com.seotoaster.pages.SignInPage;
 import com.seotoaster.pages.SignOutPage;
+import com.seotoaster.pages.TrackBikePage;
+import com.seotoaster.pages.VanNicholasPage;
+import com.seotoaster.pages.WilierCentoPage;
+
 
 public class TestSeotoasterApp {
 	public WebDriver driver;
@@ -28,7 +32,9 @@ public class TestSeotoasterApp {
 	private MountainBikePage mountainBikePage;
 	private SantaCruzPage santaCruzPage;
 	private AddToCartPage addToCartPage;
-	
+	private WilierCentoPage wilierCentoPage;
+	private TrackBikePage trackBikePage;
+	private VanNicholasPage vanNicholasPage;
 	private String username = "demo@seotoaster.com";
 	private String password = "demo";
 	
@@ -44,6 +50,9 @@ public class TestSeotoasterApp {
 		this.mountainBikePage = new MountainBikePage(driver);
 		this.santaCruzPage = new SantaCruzPage(driver);
 		this.addToCartPage = new AddToCartPage(driver);
+		this.wilierCentoPage = new WilierCentoPage(driver);
+		this.trackBikePage = new TrackBikePage(driver);
+		this.vanNicholasPage = new VanNicholasPage(driver);
 	}
 	
 	
@@ -74,10 +83,10 @@ public class TestSeotoasterApp {
 		signInPage.visitSignInPage();
 		signInPage.loginWith(username, password);
 		landingPage.verifySuccessfulLogin();
-		roadBikePage.addBike();
-		roadBikePage.verifyBikePrice();
-		roadBikePage.addBikeToCart();
-		roadBikePage.verifyBikeInCart();
+//		roadBikePage.addBike();
+//		roadBikePage.verifyBikePrice();
+//		roadBikePage.addBikeToCart();
+//		roadBikePage.verifyBikeInCart();
 	
 	}
 
@@ -93,7 +102,7 @@ public class TestSeotoasterApp {
 		signOutPage.verifySuccessfulLogOut();
 		
 	}
-	
+	@Ignore
 	@Test
 	public void testAddAMountianBikeToCart() throws Throwable{
 		homePage.verifyHomePage();
@@ -107,5 +116,33 @@ public class TestSeotoasterApp {
 		
 	}
 	
+	@Ignore
+	@Test
+	public void testAddARoadBikeToCart(){
+		homePage.verifyHomePage();
+		signInPage.visitSignInPage();
+		signInPage.loginWith(username, password);
+		landingPage.verifySuccessfulLogin();
+		roadBikePage.openWilierCentoBike();
+		wilierCentoPage.verifyWilierCentoAmount();
+		wilierCentoPage.addWilierCentoToCart();
+		addToCartPage.verifyWilierCentoBike();
+		
+	}
+	
+	@Test
+	public void testAddRoadBikeAndTrackBikeToCart(){
+		homePage.verifyHomePage();
+		signInPage.visitSignInPage();
+		signInPage.loginWith(username, password);
+		landingPage.verifySuccessfulLogin();
+		roadBikePage.openWilierCentoBike();
+		wilierCentoPage.addWilierCentoToCart();
+		trackBikePage.openVanNicholasBike();
+		vanNicholasPage.addVanNicholasToCart();
+		addToCartPage.verifyWilierAndVanBikesAmount();
+		
+		
+	}
 
 }
