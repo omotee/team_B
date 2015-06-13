@@ -21,7 +21,7 @@ public class AbstractPage {
 	}
 
 	public void setUpDriver() {
-		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 		driver.get(baseUrl);
 		

@@ -127,11 +127,11 @@ public class TestSeotoasterApp {
 		wilierCentoPage.verifyWilierCentoAmount();
 		wilierCentoPage.addWilierCentoToCart();
 		addToCartPage.verifyWilierCentoBike();
-		
 	}
 	
+	@Ignore
 	@Test
-	public void testAddRoadBikeAndTrackBikeToCart(){
+	public void testAddRoadBikeAndTrackBikeToCart() throws Throwable {
 		homePage.verifyHomePage();
 		signInPage.visitSignInPage();
 		signInPage.loginWith(username, password);
@@ -141,8 +141,70 @@ public class TestSeotoasterApp {
 		trackBikePage.openVanNicholasBike();
 		vanNicholasPage.addVanNicholasToCart();
 		addToCartPage.verifyWilierAndVanBikesAmount();
-		
-		
 	}
+	
+	
+	@Test @Ignore
+	public void testAddTwoTrackBikesToCart() throws Throwable{
+		homePage.verifyHomePage();
+		signInPage.visitSignInPage();
+		signInPage.loginWith(username, password);
+		landingPage.verifySuccessfulLogin();
+		mountainBikePage.openSantaCruzBike();
+		santaCruzPage.verifySantaCruzAmount();
+		santaCruzPage.addASantazCruiseBikeToCart();
+		addToCartPage.verifySantaCruzBike();
+		trackBikePage.openVanNicholasBike();
+		vanNicholasPage.addVanNicholasToCart();
+		addToCartPage.verifyWilierAndVanBikesAmount();
+	}
+	
+	@Test @Ignore
+	public void testAddThreeBikesTogether() throws Throwable{
+		homePage.verifyHomePage();
+		signInPage.visitSignInPage();
+		signInPage.loginWith(username, password);
+		landingPage.verifySuccessfulLogin();
+		mountainBikePage.openSantaCruzBike(); //Adding mountain bike
+		santaCruzPage.verifySantaCruzAmount();
+		santaCruzPage.addASantazCruiseBikeToCart();
+		addToCartPage.verifySantaCruzBike();
+		trackBikePage.openVanNicholasBike(); // Adding Track bike
+		vanNicholasPage.addVanNicholasToCart();
+		addToCartPage.verifyWilierAndVanBikesAmount();
+		roadBikePage.openWilierCentoBike(); //Adding road bike
+		wilierCentoPage.addWilierCentoToCart();
+		addToCartPage.verifyWilierAndVanBikesAmount();
+	}
+	
+	@Test @Ignore
+	public void testAddTwoMountainBikesToCart() throws Throwable{
+		homePage.verifyHomePage();
+		signInPage.visitSignInPage();
+		signInPage.loginWith(username, password);
+		landingPage.verifySuccessfulLogin();
+		mountainBikePage.openSantaCruzBike(); //Adding mountain bike
+		santaCruzPage.verifySantaCruzAmount();
+		santaCruzPage.addASantazCruiseBikeToCart();
+		addToCartPage.verifySantaCruzBike();
+		mountainBikePage.openSantaCruzBike(); //Adding mountain bike
+		santaCruzPage.verifySantaCruzAmount();
+		santaCruzPage.addASantazCruiseBikeToCart();
+		addToCartPage.verifySantaCruzBike();
+	}
+	
+	
+	@Test 
+	public void testAddTwoRoadBikesToCart(){
+		homePage.verifyHomePage();
+		signInPage.visitSignInPage();
+		signInPage.loginWith(username, password);
+		landingPage.verifySuccessfulLogin();
+		roadBikePage.openWilierCentoBike(); //Adding road bike
+		wilierCentoPage.addWilierCentoToCart();
+		roadBikePage.openWilierCentoBike(); //Adding road bike
+		wilierCentoPage.addWilierCentoToCart();
+	}
+	
 
 }
