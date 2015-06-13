@@ -9,6 +9,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 import com.seotoaster.pages.AbstractPage;
 import com.seotoaster.pages.AddToCartPage;
+import com.seotoaster.pages.AddToCartPage2;
 import com.seotoaster.pages.AddWilierToCartPage;
 import com.seotoaster.pages.MountainBikePage;
 import com.seotoaster.pages.RoadBikePage;
@@ -18,13 +19,7 @@ import com.seotoaster.pages.SantaCruzPage;
 import com.seotoaster.pages.SignInPage;
 import com.seotoaster.pages.SignOutPage;
 import com.seotoaster.pages.TrackBikePage;
-<<<<<<< HEAD
 import com.seotoaster.pages.WilierTriestina105Page;
-=======
-import com.seotoaster.pages.VanNicholasPage;
-import com.seotoaster.pages.WilierCentoPage;
-
->>>>>>> 79c1795a0c56b7e8f95806f05f5309243957640e
 
 public class TestSeotoasterApp {
 	public WebDriver driver;
@@ -37,20 +32,14 @@ public class TestSeotoasterApp {
 	private MountainBikePage mountainBikePage;
 	private SantaCruzPage santaCruzPage;
 	private AddToCartPage addToCartPage;
-<<<<<<< HEAD
 	private TrackBikePage trackBikePage;
 	private WilierTriestina105Page wilierTriestina105Page;
 	@SuppressWarnings("unused")
 	private AddWilierToCartPage addWilierToCartPage;
+	private AddToCartPage2 addToCartPage2;
 	
 	
 	
-	
-=======
-	private WilierCentoPage wilierCentoPage;
-	private TrackBikePage trackBikePage;
-	private VanNicholasPage vanNicholasPage;
->>>>>>> 79c1795a0c56b7e8f95806f05f5309243957640e
 	private String username = "demo@seotoaster.com";
 	private String password = "demo";
 	
@@ -66,17 +55,11 @@ public class TestSeotoasterApp {
 		this.mountainBikePage = new MountainBikePage(driver);
 		this.santaCruzPage = new SantaCruzPage(driver);
 		this.addToCartPage = new AddToCartPage(driver);
-<<<<<<< HEAD
 		this.trackBikePage = new TrackBikePage(driver);
 		this.wilierTriestina105Page = new WilierTriestina105Page(driver);
 		this.addWilierToCartPage = new AddWilierToCartPage(driver);
+	
 		
-		
-=======
-		this.wilierCentoPage = new WilierCentoPage(driver);
-		this.trackBikePage = new TrackBikePage(driver);
-		this.vanNicholasPage = new VanNicholasPage(driver);
->>>>>>> 79c1795a0c56b7e8f95806f05f5309243957640e
 	}
 	
 	
@@ -107,10 +90,10 @@ public class TestSeotoasterApp {
 		signInPage.visitSignInPage();
 		signInPage.loginWith(username, password);
 		landingPage.verifySuccessfulLogin();
-//		roadBikePage.addBike();
-//		roadBikePage.verifyBikePrice();
-//		roadBikePage.addBikeToCart();
-//		roadBikePage.verifyBikeInCart();
+		roadBikePage.addBike();
+		roadBikePage.verifyBikePrice();
+		roadBikePage.addBikeToCart();
+		roadBikePage.verifyBikeInCart();
 	
 	}
 
@@ -156,98 +139,4 @@ public class TestSeotoasterApp {
 		
 	}
 	
-<<<<<<< HEAD
-=======
-	@Ignore
-	@Test
-	public void testAddARoadBikeToCart(){
-		homePage.verifyHomePage();
-		signInPage.visitSignInPage();
-		signInPage.loginWith(username, password);
-		landingPage.verifySuccessfulLogin();
-		roadBikePage.openWilierCentoBike();
-		wilierCentoPage.verifyWilierCentoAmount();
-		wilierCentoPage.addWilierCentoToCart();
-		addToCartPage.verifyWilierCentoBike();
-	}
-	
-	@Ignore
-	@Test
-	public void testAddRoadBikeAndTrackBikeToCart() throws Throwable {
-		homePage.verifyHomePage();
-		signInPage.visitSignInPage();
-		signInPage.loginWith(username, password);
-		landingPage.verifySuccessfulLogin();
-		roadBikePage.openWilierCentoBike();
-		wilierCentoPage.addWilierCentoToCart();
-		trackBikePage.openVanNicholasBike();
-		vanNicholasPage.addVanNicholasToCart();
-		addToCartPage.verifyWilierAndVanBikesAmount();
-	}
-	
-	
-	@Test @Ignore
-	public void testAddTwoTrackBikesToCart() throws Throwable{
-		homePage.verifyHomePage();
-		signInPage.visitSignInPage();
-		signInPage.loginWith(username, password);
-		landingPage.verifySuccessfulLogin();
-		mountainBikePage.openSantaCruzBike();
-		santaCruzPage.verifySantaCruzAmount();
-		santaCruzPage.addASantazCruiseBikeToCart();
-		addToCartPage.verifySantaCruzBike();
-		trackBikePage.openVanNicholasBike();
-		vanNicholasPage.addVanNicholasToCart();
-		addToCartPage.verifyWilierAndVanBikesAmount();
-	}
-	
-	@Test @Ignore
-	public void testAddThreeBikesTogether() throws Throwable{
-		homePage.verifyHomePage();
-		signInPage.visitSignInPage();
-		signInPage.loginWith(username, password);
-		landingPage.verifySuccessfulLogin();
-		mountainBikePage.openSantaCruzBike(); //Adding mountain bike
-		santaCruzPage.verifySantaCruzAmount();
-		santaCruzPage.addASantazCruiseBikeToCart();
-		addToCartPage.verifySantaCruzBike();
-		trackBikePage.openVanNicholasBike(); // Adding Track bike
-		vanNicholasPage.addVanNicholasToCart();
-		addToCartPage.verifyWilierAndVanBikesAmount();
-		roadBikePage.openWilierCentoBike(); //Adding road bike
-		wilierCentoPage.addWilierCentoToCart();
-		addToCartPage.verifyWilierAndVanBikesAmount();
-	}
-	
-	@Test @Ignore
-	public void testAddTwoMountainBikesToCart() throws Throwable{
-		homePage.verifyHomePage();
-		signInPage.visitSignInPage();
-		signInPage.loginWith(username, password);
-		landingPage.verifySuccessfulLogin();
-		mountainBikePage.openSantaCruzBike(); //Adding mountain bike
-		santaCruzPage.verifySantaCruzAmount();
-		santaCruzPage.addASantazCruiseBikeToCart();
-		addToCartPage.verifySantaCruzBike();
-		mountainBikePage.openSantaCruzBike(); //Adding mountain bike
-		santaCruzPage.verifySantaCruzAmount();
-		santaCruzPage.addASantazCruiseBikeToCart();
-		addToCartPage.verifySantaCruzBike();
-	}
-	
-	
-	@Test 
-	public void testAddTwoRoadBikesToCart(){
-		homePage.verifyHomePage();
-		signInPage.visitSignInPage();
-		signInPage.loginWith(username, password);
-		landingPage.verifySuccessfulLogin();
-		roadBikePage.openWilierCentoBike(); //Adding road bike
-		wilierCentoPage.addWilierCentoToCart();
-		roadBikePage.openWilierCentoBike(); //Adding road bike
-		wilierCentoPage.addWilierCentoToCart();
-	}
-	
-
->>>>>>> 79c1795a0c56b7e8f95806f05f5309243957640e
 }

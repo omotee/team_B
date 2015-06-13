@@ -22,7 +22,7 @@ public class AddToCartPage extends AbstractPage{
 	}
 
 	@SuppressWarnings("unused")
-	private void verifyMountainAndRoadBikeAddedToCart() throws Throwable {
+	private void verifyMountainAndRoadBikeAddedToCart() throws InterruptedException {
 			try{
 			String message = "Sorry Item mismatch";
 		Assert.assertTrue(message, driver.getPageSource().contains("$4,095.00"));
@@ -30,26 +30,6 @@ public class AddToCartPage extends AbstractPage{
 				e.printStackTrace();
 				Thread.sleep(9000);
 			}
-		
-	}
-
-	public void verifyWilierCentoBike() {
-		try{
-		String message = "Sorry bike wasn't found";
-		Assert.assertTrue(message, driver.getPageSource().contains("Wilier Cento 1 SR Sram Red Racing Road Bike 2013"));
-		}catch(Throwable t){
-			t.printStackTrace();
-		}
-	}
-
-	public void verifyWilierAndVanBikesAmount() {
-		try{
-		String message = "Test was not successful";
-		Assert.assertTrue(message, driver.getPageSource().contains("$7,245.00"));
-		}catch(Throwable t){
-			t.getCause();
-		}
-	
 		
 	}
 
