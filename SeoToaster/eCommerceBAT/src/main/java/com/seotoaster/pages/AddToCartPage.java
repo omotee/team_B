@@ -16,6 +16,7 @@ public class AddToCartPage extends AbstractPage{
 		String messageUponFailure = "Check that the page contains the a Santa Cruz bike";
 		Assert.assertFalse(messageUponFailure, !driver.getPageSource().contains("Santa Cruz Tallboy LT Carbon"));
 		}catch(Throwable t){
+			camera.takeShot("verifySantaCruzBike");
 			throw new Throwable("Check that you have actually added a Santa Cruz bike to the cart");
 		}
 		
@@ -26,6 +27,7 @@ public class AddToCartPage extends AbstractPage{
 		String message = "Sorry bike wasn't found";
 		Assert.assertTrue(message, driver.getPageSource().contains("Wilier Cento 1 SR Sram Red Racing Road Bike 2013"));
 		}catch(Throwable t){
+			camera.takeShot("verifyWilierCentoBike");
 			t.printStackTrace();
 		}
 	}
@@ -35,6 +37,7 @@ public class AddToCartPage extends AbstractPage{
 		String message = "Test was not successful";
 		Assert.assertTrue(message, driver.getPageSource().contains("$7,245.00"));
 		}catch(Throwable t){
+			camera.takeShot("verifyWilierAndVanBikesAmount");
 			t.getCause();
 		}
 	

@@ -1,7 +1,6 @@
 package com.seotoaster.pages;
 
 import org.junit.Assert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class HomePage extends AbstractPage{
@@ -12,9 +11,10 @@ public class HomePage extends AbstractPage{
 
 	public void verifyHomePage() {
 		try{
-		String message = "I am not sure that you are on the home page";
-		Assert.assertTrue(message, driver.getTitle().contains("Home"));
+			String message = "I am not sure that you are on the home page";
+			Assert.assertTrue(message, driver.getTitle().contains("Home"));
 		}catch(Exception e){
+			camera.takeShot("verifyHomePage");
 			System.out.println("verify method has fialed with error"+e);
 		}
 	}

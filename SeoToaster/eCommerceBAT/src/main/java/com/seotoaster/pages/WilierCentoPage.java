@@ -12,13 +12,23 @@ public class WilierCentoPage extends AbstractPage {
 	}
 
 	public void verifyWilierCentoAmount() {
-		String message = "There is no such price to said Bike";
-		Assert.assertTrue(message,driver.getPageSource().contains("$4,575.00"));
+		try{
+			String message = "There is no such price to said Bike";
+			Assert.assertTrue(message,driver.getPageSource().contains("$4,575.00"));
+		}catch(Exception e){
+			camera.takeShot("verifyWilierCentoAmount");
+		}
+		
 		
 	}
 
 	public void addWilierCentoToCart() {
-		driver.findElement(By.linkText("Add to cart")).click();
+		try{
+			driver.findElement(By.linkText("Add to cart")).click();
+		}catch(Exception e){
+			camera.takeShot("addWilierCentoToCart");
+		}
+		
 		
 		
 	}

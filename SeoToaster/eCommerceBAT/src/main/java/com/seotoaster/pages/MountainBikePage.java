@@ -10,8 +10,12 @@ public class MountainBikePage extends AbstractPage {
 	}
 
 	public void openSantaCruzBike() {
-		driver.findElement(By.partialLinkText("Mountain")).click();
-		driver.findElement(By.partialLinkText("Santa Cruz Tallboy LT Carbon")).click();
+		try{
+			driver.findElement(By.partialLinkText("Mountain")).click();
+			driver.findElement(By.partialLinkText("Santa Cruz Tallboy LT Carbon")).click();
+		}catch(Exception e){
+			camera.takeShot("openSantaCruzBike");
+		}
 		
 	}
 	

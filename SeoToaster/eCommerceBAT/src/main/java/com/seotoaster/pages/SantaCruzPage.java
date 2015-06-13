@@ -12,9 +12,10 @@ public class SantaCruzPage extends AbstractPage{
 
 	public void verifySantaCruzAmount() throws Throwable {
 		try{
-		String messageUpOnFailure = "This page does not contain the desired amount";
-		Assert.assertTrue(messageUpOnFailure, driver.getPageSource().contains("$3,000.00"));
+			String messageUpOnFailure = "This page does not contain the desired amount";
+			Assert.assertTrue(messageUpOnFailure, driver.getPageSource().contains("$3,000.00"));
 		}catch(Exception e){
+			camera.takeShot("verifySantaCruzAmount");
 			throw new Exception("Please check that you are on the right page and there is appropriate amunt"+e);
 		}
 	}
@@ -23,6 +24,7 @@ public class SantaCruzPage extends AbstractPage{
 		try{
 			driver.findElement(By.partialLinkText("Add to cart")).click();
 		}catch(Throwable t){
+			camera.takeShot("addASantazCruiseBikeToCart");
 			throw new Throwable ("Please check your button as this is the error message: "+t);
 		}
 	}

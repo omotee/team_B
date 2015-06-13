@@ -36,9 +36,9 @@ public class TestSeotoasterApp {
 	private TrackBikePage trackBikePage;
 	private VanNicholasPage vanNicholasPage;
 	private String username = "demo@seotoaster.com";
-	private String password = "demo";
+	private String password = "demo";  //demo
 	
-	 
+	
 	public TestSeotoasterApp(){
 		this.driver = new FirefoxDriver();
 		this.homePage = new HomePage(driver);
@@ -67,7 +67,7 @@ public class TestSeotoasterApp {
 		
 	}
 	
-	@Ignore
+	
 	@Test
 	public void testLogin(){
 		homePage.verifyHomePage();
@@ -91,7 +91,7 @@ public class TestSeotoasterApp {
 	}
 
 	
-	@Ignore
+//	@Ignore
 	@Test
 	public void testLogout(){
 		homePage.verifyHomePage();
@@ -99,10 +99,10 @@ public class TestSeotoasterApp {
 		signInPage.loginWith(username, password);
 		landingPage.verifySuccessfulLogin();
 		signOutPage.logOut();
-		signOutPage.verifySuccessfulLogOut();
-		
+		signOutPage.verifySuccessfulLogOut();	
 	}
-	@Ignore
+	
+//	@Ignore
 	@Test
 	public void testAddAMountianBikeToCart() throws Throwable{
 		homePage.verifyHomePage();
@@ -113,10 +113,9 @@ public class TestSeotoasterApp {
 		santaCruzPage.verifySantaCruzAmount();
 		santaCruzPage.addASantazCruiseBikeToCart();
 		addToCartPage.verifySantaCruzBike();
-		
 	}
 	
-	@Ignore
+//	@Ignore
 	@Test
 	public void testAddARoadBikeToCart(){
 		homePage.verifyHomePage();
@@ -194,7 +193,7 @@ public class TestSeotoasterApp {
 	}
 	
 	
-	@Test 
+	@Test @Ignore
 	public void testAddTwoRoadBikesToCart(){
 		homePage.verifyHomePage();
 		signInPage.visitSignInPage();

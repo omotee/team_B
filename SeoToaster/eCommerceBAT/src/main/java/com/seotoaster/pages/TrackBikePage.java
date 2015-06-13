@@ -11,9 +11,10 @@ public class TrackBikePage extends AbstractPage {
 
 	public void openVanNicholasBike() throws Throwable{
 		try{
-		driver.findElement(By.xpath("//*[@id='container']/nav/ul[1]/li[2]/a")).click();
-		driver.findElement(By.linkText("Van Nicholas Astraeus DI2")).click();
+			driver.findElement(By.xpath("//*[@id='container']/nav/ul[1]/li[2]/a")).click();
+			driver.findElement(By.linkText("Van Nicholas Astraeus DI2")).click();
 		}catch(Throwable t){
+			camera.takeShot("openVanNicholasBike");
 			throw new Throwable ("Something is not quite right with the openVanNicholasBike Method");
 		}
 	}
