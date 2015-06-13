@@ -18,6 +18,18 @@ public class AddToCartPage extends AbstractPage{
 		}catch(Throwable t){
 			throw new Throwable("Check that you have actually added a Santa Cruz bike to the cart");
 		}
+				
+	}
+
+	@SuppressWarnings("unused")
+	private void verifyMountainAndRoadBikeAddedToCart() throws Throwable {
+			try{
+			String message = "Sorry Item mismatch";
+		Assert.assertTrue(message, driver.getPageSource().contains("$4,095.00"));
+			}catch(Exception e){
+				e.printStackTrace();
+				Thread.sleep(9000);
+			}
 		
 	}
 

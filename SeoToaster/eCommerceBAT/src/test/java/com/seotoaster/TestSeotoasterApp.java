@@ -9,6 +9,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 import com.seotoaster.pages.AbstractPage;
 import com.seotoaster.pages.AddToCartPage;
+import com.seotoaster.pages.AddWilierToCartPage;
 import com.seotoaster.pages.MountainBikePage;
 import com.seotoaster.pages.RoadBikePage;
 import com.seotoaster.pages.HomePage;
@@ -16,6 +17,8 @@ import com.seotoaster.pages.LandingPage;
 import com.seotoaster.pages.SantaCruzPage;
 import com.seotoaster.pages.SignInPage;
 import com.seotoaster.pages.SignOutPage;
+import com.seotoaster.pages.TrackBikePage;
+import com.seotoaster.pages.WilierTriestina105Page;
 
 public class TestSeotoasterApp {
 	public WebDriver driver;
@@ -28,6 +31,13 @@ public class TestSeotoasterApp {
 	private MountainBikePage mountainBikePage;
 	private SantaCruzPage santaCruzPage;
 	private AddToCartPage addToCartPage;
+	private TrackBikePage trackBikePage;
+	private WilierTriestina105Page wilierTriestina105Page;
+	@SuppressWarnings("unused")
+	private AddWilierToCartPage addWilierToCartPage;
+	
+	
+	
 	
 	private String username = "demo@seotoaster.com";
 	private String password = "demo";
@@ -44,6 +54,11 @@ public class TestSeotoasterApp {
 		this.mountainBikePage = new MountainBikePage(driver);
 		this.santaCruzPage = new SantaCruzPage(driver);
 		this.addToCartPage = new AddToCartPage(driver);
+		this.trackBikePage = new TrackBikePage(driver);
+		this.wilierTriestina105Page = new WilierTriestina105Page(driver);
+		this.addWilierToCartPage = new AddWilierToCartPage(driver);
+		
+		
 	}
 	
 	
@@ -93,7 +108,7 @@ public class TestSeotoasterApp {
 		signOutPage.verifySuccessfulLogOut();
 		
 	}
-	
+	@Ignore
 	@Test
 	public void testAddAMountianBikeToCart() throws Throwable{
 		homePage.verifyHomePage();
@@ -103,9 +118,24 @@ public class TestSeotoasterApp {
 		mountainBikePage.openSantaCruzBike();
 		santaCruzPage.verifySantaCruzAmount();
 		santaCruzPage.addASantazCruiseBikeToCart();
+		addToCartPage.verifySantaCruzBike();		
+	}
+	
+	@Test
+	public void testAddTrackBikeToCart() throws Throwable{
+		homePage.verifyHomePage();
+		signInPage.visitSignInPage();
+		signInPage.loginWith(username, password);
+		landingPage.verifySuccessfulLogin();
+		trackBikePage.openTypesOfTrackBike();
+		wilierTriestina105Page.verifyWilierTriestina105Availability();
+		wilierTriestina105Page.addWilierTriestina105ToCart();
+		mountainBikePage.openSantaCruzBike();
+		santaCruzPage.verifySantaCruzAmount();
+		santaCruzPage.addASantazCruiseBikeToCart();
 		addToCartPage.verifySantaCruzBike();
+		
 		
 	}
 	
-
 }
