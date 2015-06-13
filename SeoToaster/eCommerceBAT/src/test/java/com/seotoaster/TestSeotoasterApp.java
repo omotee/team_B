@@ -38,7 +38,7 @@ public class TestSeotoasterApp {
 	private String username = "demo@seotoaster.com";
 	private String password = "demo";
 	
-	
+	 
 	public TestSeotoasterApp(){
 		this.driver = new FirefoxDriver();
 		this.homePage = new HomePage(driver);
