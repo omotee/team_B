@@ -14,25 +14,31 @@ public class RoadBikePage extends AbstractPage {
 		super(driver);
 			}
 
-	public void addBike() {
+//	public void addBike() {
+//		driver.findElement(By.linkText("Road Bikes")).click();
+//		driver.findElement(By.linkText("Orange Carb-O Racing Road Bike 2013")).click();
+//		
+//	}
+//	
+//	public void verifyBikePrice(){
+//		String bikeAmount1 = "$2,005.00";
+//		String message = "The item price entered is not "+ bikeAmount1;
+//		Assert.assertTrue(message, driver.getPageSource().contains(bikeAmount1));
+//	} 
+//	
+//	public void addBikeToCart(){
+//		driver.findElement(By.linkText("Add to cart")).click();
+//	}
+//	
+//	public void verifyBikeInCart(){
+//		String message = "The item is not available in cart";
+//		Assert.assertTrue(message, driver.getPageSource().contains("Orange Carb-O Racing Road Bike 2013"));
+//	}
+
+	public void openWilierCentoBike() {
 		driver.findElement(By.linkText("Road Bikes")).click();
-		driver.findElement(By.linkText("Orange Carb-O Racing Road Bike 2013")).click();
-		
+		driver.findElement(By.partialLinkText("Wilier Cento 1 ")).click();	
 	}
+
 	
-	public void verifyBikePrice(){
-		String bikeAmount1 = "$2,005.00";
-		String message = "The item price entered is not "+ bikeAmount1;
-		Assert.assertTrue(message, driver.getPageSource().contains(bikeAmount1));
-	} 
-	
-	public void addBikeToCart(){
-		driver.findElement(By.linkText("Add to cart")).click();
-	}
-	
-	public void verifyBikeInCart(){
-		String message = "The item is not available in cart";
-		Assert.assertTrue(message, driver.getPageSource().contains("Orange Carb-O Racing Road Bike 2013"));
-	}
- 
 }

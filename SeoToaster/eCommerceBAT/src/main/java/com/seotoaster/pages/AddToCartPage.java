@@ -33,4 +33,24 @@ public class AddToCartPage extends AbstractPage{
 		
 	}
 
+	public void verifyWilierCentoBike() {
+		try{
+		String message = "Sorry bike wasn't found";
+		Assert.assertTrue(message, driver.getPageSource().contains("Wilier Cento 1 SR Sram Red Racing Road Bike 2013"));
+		}catch(Throwable t){
+			t.printStackTrace();
+		}
+	}
+
+	public void verifyWilierAndVanBikesAmount() {
+		try{
+		String message = "Test was not successful";
+		Assert.assertTrue(message, driver.getPageSource().contains("$7,245.00"));
+		}catch(Throwable t){
+			t.getCause();
+		}
+	
+		
+	}
+
 }
