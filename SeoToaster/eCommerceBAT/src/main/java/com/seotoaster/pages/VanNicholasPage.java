@@ -11,7 +11,12 @@ public class VanNicholasPage extends AbstractPage{
 	}
 
 	public void addVanNicholasToCart() {
-		driver.findElement(By.linkText("Add to cart")).click();
+		try{
+			driver.findElement(By.linkText("Add to cart")).click();
+		}catch(Exception e){
+			camera.takeShot("addVanNicholasToCart");
+		}
+		
 	}
 	
 

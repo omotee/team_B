@@ -1,0 +1,29 @@
+14/06/2015 18:14:32 [TayoLog4J][  INFO]:- Imlicit wait of 10 secs started
+14/06/2015 18:14:33 [TayoLog4J][  INFO]:- Browser has been maximized
+14/06/2015 18:14:39 [TayoLog4J][  INFO]:- The Web Address has been loaded successfully
+14/06/2015 18:14:39 [TayoLog4J][  INFO]:- The visitSignInPage method has started
+14/06/2015 18:14:39 [TayoLog4J][  INFO]:- The signInPage method has been succussfully executed
+14/06/2015 18:14:39 [TayoLog4J][  INFO]:- The loginWith Method has started with test data as demo@seotoaster.com and demo
+14/06/2015 18:14:42 [TayoLog4J][  INFO]:- The driver has entered username successfully as demo@seotoaster.com
+14/06/2015 18:14:42 [TayoLog4J][  INFO]:- The driver has entered password successfully as demo
+14/06/2015 18:14:48 [TayoLog4J][  INFO]:- The loginWith method has executed successfully with the following test data: demo@seotoaster.com and demo
+14/06/2015 18:16:34 [TayoLog4J][  INFO]:- Imlicit wait of 10 secs started
+14/06/2015 18:16:34 [TayoLog4J][  INFO]:- Browser has been maximized
+14/06/2015 18:16:40 [TayoLog4J][  INFO]:- The Web Address has been loaded successfully
+14/06/2015 18:16:40 [TayoLog4J][  INFO]:- The visitSignInPage method has started
+14/06/2015 18:16:40 [TayoLog4J][  INFO]:- The signInPage method has been succussfully executed
+14/06/2015 18:16:40 [TayoLog4J][  INFO]:- The loginWith Method has started with test data as demo@seotoaster.com and demo
+14/06/2015 18:16:43 [TayoLog4J][  INFO]:- The driver has entered username successfully as demo@seotoaster.com
+14/06/2015 18:16:43 [TayoLog4J][  INFO]:- The driver has entered password successfully as demo
+14/06/2015 18:16:48 [TayoLog4J][  INFO]:- The loginWith method has executed successfully with the following test data: demo@seotoaster.com and demo
+14/06/2015 18:18:48 [TayoLog4J][  INFO]:- Implicit wait of 10 secs started
+14/06/2015 18:18:49 [TayoLog4J][  INFO]:- Browser has been maximized
+14/06/2015 18:18:55 [TayoLog4J][  INFO]:- The Web Address has been loaded successfully
+14/06/2015 18:18:55 [TayoLog4J][  INFO]:- The visitSignInPage method has started
+14/06/2015 18:18:55 [TayoLog4J][  INFO]:- The signInPage method has been succussfully executed
+14/06/2015 18:18:55 [TayoLog4J][  INFO]:- The loginWith Method has started with test data as demo@seotoaster.com and demo
+14/06/2015 18:18:58 [TayoLog4J][  INFO]:- The driver has entered username successfully as demo@seotoaster.com
+14/06/2015 18:18:58 [TayoLog4J][  INFO]:- The driver has entered password successfully as demo
+14/06/2015 18:19:04 [TayoLog4J][  INFO]:- The loginWith method has executed successfully with the following test data: demo@seotoaster.com and demo
+14/06/2015 18:19:04 [TayoLog4J][  INFO]:- The browser has now closed successfully
+14/06/2015 18:19:04 [TayoLog4J][  INFO]:- ****************************************
