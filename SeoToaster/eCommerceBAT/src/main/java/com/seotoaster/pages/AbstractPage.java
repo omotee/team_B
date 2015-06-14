@@ -8,8 +8,6 @@ import org.openqa.selenium.WebDriver;
 public class AbstractPage {
 	protected WebDriver driver;
 	private String baseUrl = "http://free-ecommerce-solution.seotoaster.com/";
-	private static final double PI = 3.142;
-	private static final String TAKE_ME_HOME = "Edwin";
 	
 	
 	public AbstractPage(WebDriver driver){
@@ -17,6 +15,7 @@ public class AbstractPage {
 	}
 
 	public void setUpDatabase (){
+		
 		System.out.println("This is for Database start up codes!!!");
 	}
 

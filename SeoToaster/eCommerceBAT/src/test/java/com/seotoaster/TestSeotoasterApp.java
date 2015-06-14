@@ -116,7 +116,7 @@ public class TestSeotoasterApp {
 		
 	}
 	
-	@Ignore
+
 	@Test
 	public void testAddARoadBikeToCart(){
 		homePage.verifyHomePage();
