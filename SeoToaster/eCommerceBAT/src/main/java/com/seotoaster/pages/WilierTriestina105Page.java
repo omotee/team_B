@@ -7,9 +7,9 @@ import org.openqa.selenium.WebDriver;
 public class WilierTriestina105Page extends AbstractPage {
 
 	public WilierTriestina105Page(WebDriver driver) {
-		super(driver);
-		
+		super(driver);	
 	}
+	
 
 	public void verifyWilierTriestina105Availability() {
 		try{
