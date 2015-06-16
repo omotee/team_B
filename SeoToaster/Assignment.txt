@@ -1,0 +1,12 @@
+Add to Cart
+- Add Mountian bike to cart -  edwinchukus -done
+- Add Track bike to cart - Omotee - Finito
+- Add Road bike to cart - Aijay - done
+- Add Mountain and Track bikes together - edwinchukus - done
+- Add Moutain and Road bikes together - Omotee - Finito
+- Add Track and Road Bikes together - Aijay - done
+- Add Track, Road and Mountain bikes together - edwinchukus - done
+- Add two track bikes - edwinchukus - done
+- Add two Road bikes - edwinchukus - done
+- Add two Mountain bikes - edwinchukus - done 
+

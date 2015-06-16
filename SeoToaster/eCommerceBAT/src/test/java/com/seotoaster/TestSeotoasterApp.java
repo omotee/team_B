@@ -38,7 +38,7 @@ public class TestSeotoasterApp {
 	private AddToCartPage addToCartPage;
 	private WilierCentoPage wilierCentoPage;
 	private TrackBikePage trackBikePage;
-
+<<<<<<< HEAD
 	private WilierTriestina105Page wilierTriestina105Page;
 	@SuppressWarnings("unused")
 	private AddWilierToCartPage addWilierToCartPage;
@@ -147,7 +147,11 @@ public class TestSeotoasterApp {
 		addToCartPage.verifySantaCruzBike();
 	}
 	
+<<<<<<< HEAD
+
+=======
 //	@Ignore
+>>>>>>> 9b22a8138be8feaea66eb682f617fefb53ecf531
 	@Test
 	public void testAddARoadBikeToCart(){
 		homePage.verifyHomePage();
