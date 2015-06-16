@@ -9,11 +9,9 @@ import com.seotoaster.util.Screenshot;
 public class AbstractPage {
 	protected WebDriver driver;
 	private String baseUrl = "http://free-ecommerce-solution.seotoaster.com/";
-<<<<<<< HEAD
-	
-=======
+
 	protected static Screenshot camera; 
->>>>>>> 9b22a8138be8feaea66eb682f617fefb53ecf531
+
 	
 	public AbstractPage(WebDriver driver){
 		this.driver = driver;
