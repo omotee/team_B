@@ -38,7 +38,7 @@ public class TestSeotoasterApp {
 	private AddToCartPage addToCartPage;
 	private WilierCentoPage wilierCentoPage;
 	private TrackBikePage trackBikePage;
-<<<<<<< HEAD
+
 	private WilierTriestina105Page wilierTriestina105Page;
 	@SuppressWarnings("unused")
 	private AddWilierToCartPage addWilierToCartPage;
